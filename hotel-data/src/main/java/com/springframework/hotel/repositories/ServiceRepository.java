@@ -1,4 +1,7 @@
 package com.springframework.hotel.repositories;
 
-public class ServiceRepository {
+import com.springframework.hotel.models.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ServiceRepository extends JpaRepository<Service,Integer> {
 }

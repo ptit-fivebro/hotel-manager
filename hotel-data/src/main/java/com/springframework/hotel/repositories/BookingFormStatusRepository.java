@@ -1,4 +1,7 @@
 package com.springframework.hotel.repositories;
 
-public class BookingFormStatusRepository {
+import com.springframework.hotel.models.BookingFormStatus;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookingFormStatusRepository extends JpaRepository<BookingFormStatus,Integer> {
 }

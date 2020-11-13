@@ -1,4 +1,7 @@
 package com.springframework.hotel.repositories;
 
-public class RentalFormRepository {
+import com.springframework.hotel.models.RentalForm;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RentalFormRepository extends JpaRepository<RentalForm,Integer> {
 }

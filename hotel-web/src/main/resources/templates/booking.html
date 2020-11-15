@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Holiday</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700" rel="stylesheet"
+          type="text/css" />
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap-datetimepicker.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/flexslider.css}" rel="stylesheet" />
+    <link th:href="@{/css/templatemo-style.css}" rel="stylesheet" />
+</head>
+
+<body class="tm-gray-bg">
+<div th:replace="fragments/header :: header"></div>
+
+<!-- white bg -->
+<section class="section-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="tm-section-header section-margin-top">
+                <div class="col-lg-4 col-md-3 col-sm-3">
+                    <hr />
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <h2 class="tm-section-title">Đặt phòng</h2>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-3">
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- contact form -->
+            <form action="#" method="post" class="tm-contact-form">
+                <div class="col-lg-6 col-md-6">
+                    <img th:src="@{/img/world-map.png}" alt="image" class="contact-image" />
+                    <div class="contact-social">
+                        <a href="#" class="tm-social-icon tm-social-facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="tm-social-icon tm-social-dribbble"><i class="fa fa-dribbble"></i></a>
+                        <a href="#" class="tm-social-icon tm-social-twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="tm-social-icon tm-social-instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="tm-social-icon tm-social-google-plus"><i
+                                class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 tm-contact-form-input">
+                    <div class="form-group">
+                        <h3 class="tm-about-box-1-title">Họ và tên</h3>
+                        <input type="text" id="contact_email" class="form-control" placeholder="Họ và tên" />
+                    </div>
+                    <div class="form-group">
+                        <h3 class="tm-about-box-1-title">Số điện thoại</h3>
+                        <input type="number" id="contact_email" class="form-control" placeholder="Số điện thoại" />
+                    </div>
+                    <div class="form-group">
+                        <h3 class="tm-about-box-1-title">Email</h3>
+                        <input type="email" id="contact_email" class="form-control" placeholder="EMAIL" />
+                    </div>
+                    <div class="form-group">
+                        <h3 class="tm-about-box-1-title">Loại phòng</h3>
+                        <select class="form-control">
+                            <option value="">-- Chọn loại phòng --</option>
+                            <option value="shangrila">Phòng tiêu chuẩn</option>
+                            <option value="chatrium">Phòng VIP</option>
+                            <option value="fourseasons">...</option>
+                            <option value="hilton">...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="tm-about-box-1-title">Ngày đến</h3>
+                        <div class="input-group date" id="datetimepicker1">
+                            <input type="text" class="form-control" placeholder="Ngày đến" />
+                            <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="tm-about-box-1-title">Ngày đi</h3>
+                        <div class="input-group date" id="datetimepicker2">
+                            <input type="text" class="form-control" placeholder="Ngày đi" />
+                            <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="form-group margin-bottom-0">
+                        <h3 class="tm-about-box-1-title">Số lượng</h3>
+                        <select class="form-control">
+                            <option value="">-- Số lượng --</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5p">5+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="tm-submit-btn" type="submit" name="submit">
+                            Đặt ngay
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" th:src="@{/js/jquery-1.11.2.min.js}"></script>
+<!-- jQuery -->
+<script type="text/javascript" th:src="@{/js/moment.js}"></script>
+<!-- moment.js -->
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- bootstrap js -->
+<script type="text/javascript" th:src="@{/js/bootstrap-datetimepicker.min.js}"></script>
+<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+<script type="text/javascript" th:src="@{js/jquery.flexslider-min.js}"></script>
+<script type="text/javascript" th:src="@{/js/templatemo-script.js}"></script>
+<!-- Templatemo Script -->
+<script>
+    // HTML document is loaded. DOM is ready.
+    $(function () {
+        $("#hotelCarTabs a").click(function (e) {
+            e.preventDefault();
+            $(this).tab("show");
+        });
+
+        $(".date").datetimepicker({
+            format: "MM/DD/YYYY",
+        });
+        $(".date-time").datetimepicker();
+
+        // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+        $("a[href*=#]:not([href=#])").click(function () {
+            if (
+                location.pathname.replace(/^\//, "") ==
+                this.pathname.replace(/^\//, "") &&
+                location.hostname == this.hostname
+            ) {
+                var target = $(this.hash);
+                target = target.length
+                    ? target
+                    : $("[name=" + this.hash.slice(1) + "]");
+                if (target.length) {
+                    $("html,body").animate(
+                        {
+                            scrollTop: target.offset().top,
+                        },
+                        1000
+                    );
+                    return false;
+                }
+            }
+        });
+    });
+    $(window).load(function () {
+        $(".flexslider").flexslider({
+            controlNav: false,
+        });
+    });
+</script>
+</body>
+
+</html>

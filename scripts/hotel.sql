@@ -35,13 +35,13 @@ CREATE TABLE `PartEmployee` (
 
 CREATE TABLE `Customer` (
   `ID_CUSTOMER` int NOT null auto_increment,
-  `CMND` char(9) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `CMND` char(9) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `PASSWORD` char(20) NOT NULL,
   `NAME` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `EMAIL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `PHONE` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci not NULL,
   `GENDER` bit(1) DEFAULT 1,
-  `ADDRESS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ADDRESS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `NATIONALITY` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `ACTIVE` bit(1) DEFAULT 1,
   `IMAGE` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,

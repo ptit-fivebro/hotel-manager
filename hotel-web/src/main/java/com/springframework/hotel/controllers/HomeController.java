@@ -4,9 +4,12 @@ import com.springframework.hotel.models.RoomCategory;
 import com.springframework.hotel.services.IRoomCategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import java.io.IOException;
 
 @Controller
 public class HomeController {
@@ -18,9 +21,7 @@ public class HomeController {
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
-        //List<RoomCategory> list = roomCategoryService.findAll();s
-        //System.out.println(list.size());
-        //model.addAttribute("roomCategories", roomCategoryService.findAll());
+        model.addAttribute("roomCategories", roomCategoryService.findAll());
         return "index";
     }
 
@@ -29,14 +30,9 @@ public class HomeController {
         return "404";
     }
 
-    @RequestMapping({"about", "about.html"})
+    @RequestMapping({"about-us", "about-us.html"})
     public String about(Model model) {
-        return "about";
-    }
-
-    @RequestMapping({"booking", "booking.html"})
-    public String booking(Model model) {
-        return "booking";
+        return "about-us";
     }
 
     @RequestMapping({"contact", "contact.html"})
@@ -44,19 +40,14 @@ public class HomeController {
         return "contact";
     }
 
-    @RequestMapping({"room", "room.html"})
+    @RequestMapping({"rooms", "rooms.html"})
     public String room(Model model) {
-        return "room";
+        return "rooms";
     }
 
-    @RequestMapping({"sign-in", "sign-in.html"})
-    public String signIn(Model model) {
-        return "sign-in";
-    }
-
-    @RequestMapping({"sign-up", "sign-up.html"})
-    public String signUp(Model model) {
-        return "sign-up";
+    @RequestMapping({"services", "services.html"})
+    public String services(Model model) {
+        return "services";
     }
 
     @RequestMapping({"success", "success.html"})

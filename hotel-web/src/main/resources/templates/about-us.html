@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hotel Template">
+    <meta name="keywords" content="Hotel, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Về chúng tôi</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Taviraj:300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/linearicons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/slicknav.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section set-bg" data-setbg="img/about-us-bg.jpg">
+        <div class="hero-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Về chúng tôi</h1>
+                    </div>
+                </div>
+                <div class="page-nav">
+                    <a th:href="@{index}" class="left-nav"><i class="lnr lnr-arrow-left"></i>Trang chủ</a>
+                    <a th:href="@{rooms}" class="right-nav">Phòng<i class="lnr lnr-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- About Room Section Begin -->
+    <div class="about-us-room spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <h2>“Nơi chưa có ở Việt Nam”.</h2>
+                </div>
+            </div>
+            <div class="about-para">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>Khách sạn và khu căn hộ dịch vụ sang trọng mang đến dịch vụ cá nhân hóa trong một khung cảnh
+                            nghỉ dưỡng dành riêng cho những vị khách/ cư dân sành điệu và các thành viên để tận hưởng
+                            những thú vui đơn giản của lối sống giải trí/ giải trí xã hội và thành công trong kinh
+                            doanh.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>Được thành lập theo truyền thống của các câu lạc bộ danh tiếng trên toàn thế giới, tự hào là
+                            thành viên trực thuộc và liên kết. Câu lạc bộ Hà Nội là đơn vị tiên phong cung cấp dịch vụ
+                            câu lạc bộ tư nhân hạng nhất với các tiện nghi nghỉ dưỡng được thiết kế trang nhã và được
+                            quản lý bởi đội ngũ chuyên nghiệp đặt tiêu chuẩn quốc tế về chất lượng và dịch vụ xuất sắc,
+                            vượt qua sự mong đợi và hài lòng của các vị khách quý / cư dân. và các thành viên như nhau.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Room Section End -->
+
+    <!-- Gallery Section Begin -->
+    <section class="gallery-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="gallery-text">
+                        <h2>Khách sạn</h2>
+                        <p>Hình ảnh về khách sạn của chúng tôi.</p>
+                        <a href="#" class="primary-btn">Xem ngay<i class="lnr lnr-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-3 col-sm-6">
+                            <div class="gallery-img">
+                                <img th:src="@{/img/gallery/gallery-1.jpg}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-3 col-sm-6">
+                            <div class="gallery-img">
+                                <img th:src="@{/img/gallery/gallery-2.jpg}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-3 col-sm-6">
+                            <div class="gallery-img">
+                                <img th:src="@{/img/gallery/gallery-3.jpg}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-3 col-sm-6">
+                            <div class="gallery-img">
+                                <img th:src="@{/img/gallery/gallery-4.jpg}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section End -->
+
+    <div th:replace="fragments/footer :: footer"></div>
+    <!-- Js Plugins -->
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+    <script th:src="@{/js/jquery-ui.min.js}"></script>
+    <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/js/jquery.slicknav.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

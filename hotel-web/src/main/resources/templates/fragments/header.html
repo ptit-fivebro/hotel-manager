@@ -1,39 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<body class="tm-gray-bg" th:fragment="header">
-<!-- Header -->
-<div class="tm-header">
-    <div class="row">
-        <div class="col-lg-2 col-md-4 col-sm-3 tm-site-name-container">
-            <a href="#" class="tm-site-name">Holiday</a>
-        </div>
-        <div class="col-lg-6 col-md-8 col-sm-9">
-            <div class="mobile-menu-icon">
-                <i class="fa fa-bars"></i>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="header">
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header Section Begin -->
+<header class="header-section other-page">
+    <div class="container-fluid">
+        <div class="inner-header">
+            <div class="logo">
+                <a th:href="@{index}"><img th:src="@{/img/logo.png}" alt=""></a>
             </div>
-            <nav class="tm-nav">
-                <ul>
-                    <li><a th:href="@{/index.html}" class="active">Trang chủ</a></li>
-                    <li><a th:href="@{/about.html}">Về khách sạn</a></li>
-                    <li><a th:href="@{/contact.html}">Liên hệ</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="col-lg-4 col-md-8 col-sm-9 ml-3">
-            <div class="mobile-menu-icon">
-                <i class="fa fa-bars"></i>
+            <div class="top-widget">
+                <a href="login.html" class="top-info address">
+                    <img th:src="@{/img/placeholder.png}" alt="">
+                    <span>Đăng nhập</span>
+                </a><a href="register.html" class="top-info address">
+                <img th:src="@{/img/phone.png}" alt="">
+                <span>Đăng ký</span>
+            </a>
             </div>
-            <nav class="tm-nav">
-                <ul>
-                    <li><a th:if="${session.usersession == null}" th:href="@{/sign-in.html}">Đăng nhập</a></li>
-                    <li><a th:unless="${session.usersession == null}" th:href="@{#}" >Quản lí bài viết</a></li>
-                    <li><a th:if="${session.usersession == null}" th:href="@{/sign-up.html}">Tạo tài khoản</a></li>
-                    <li><a th:unless="${session.usersession == null}" th:href="@{#}" >Đăng xuất</a></li>
-                </ul>
-            </nav>
+            <div class="container">
+                <nav class="main-menu mobile-menu">
+                    <ul>
+                        <li><a th:href="@{index}">Trang chủ</a></li>
+                        <li><a th:href="@{about-us}">Về chúng tôi</a></li>
+                        <li><a th:href="@{rooms}">Phòng</a></li>
+                        <li><a th:href="@{services}">Dịch vụ</a></li>
+                        <li><a th:href="@{contact}">Liên hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="mobile-menu-wrap"></div>
         </div>
     </div>
-</div>
+</header>
+<!-- Header End -->
 </body>
 
 </html>

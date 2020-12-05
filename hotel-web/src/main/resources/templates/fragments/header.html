@@ -15,13 +15,10 @@
                 <a th:href="@{index}"><img th:src="@{/img/logo.png}" alt=""></a>
             </div>
             <div class="top-widget">
-                <a href="login.html" class="top-info address">
-                    <img th:src="@{/img/placeholder.png}" alt="">
-                    <span>Đăng nhập</span>
-                </a><a href="register.html" class="top-info address">
-                <img th:src="@{/img/phone.png}" alt="">
-                <span>Đăng ký</span>
-            </a>
+                <a th:if="${session.usersession == null}" th:href="@{login}" class="top-info address"><img th:src="@{/img/placeholder.png}" alt=""><span>Đăng nhập</span></a>
+                <a th:unless="${session.usersession == null}" th:href="@{#}" class="top-info address"><img th:src="@{/img/speech.png}" alt=""><span>Quản lí tài khoản</span></a>
+                <a th:if="${session.usersession == null}" th:href="@{register}" class="top-info address"><img th:src="@{/img/phone.png}" alt=""><span>Đăng ký</span></a>
+                <a th:unless="${session.usersession == null}" th:href="@{logout}" class="top-info address"><img th:src="@{/img/placeholder.png}" alt=""><span>Đăng xuất</span></a>
             </div>
             <div class="container">
                 <nav class="main-menu mobile-menu">

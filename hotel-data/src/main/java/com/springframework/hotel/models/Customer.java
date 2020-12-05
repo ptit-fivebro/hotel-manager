@@ -39,7 +39,7 @@ public class Customer {
     private String nationality;
 
     @Column(name = "ACTIVE")
-    private boolean active;
+    private boolean active = true;
 
     @Column(name = "IMAGE")
     private String image;

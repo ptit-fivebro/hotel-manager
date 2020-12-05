@@ -30,50 +30,18 @@
 <body>
     <div th:replace="fragments/header :: header"></div>
 
-    <!-- Hero Section Begin -->
-    <section class="hero-section set-bg" data-setbg="img/contact-bg.jpg">
-    </section>
-    <!-- Hero Section End -->
-
-    <!-- Contact Section Begin -->
-    <section class="contact-section spad">
+    <div class="hero-section set-bg page-wrap d-flex flex-row align-items-center">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="contact-information">
-                        <img th:src="@{/img/room/rooms-3.jpg}" alt="" />
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <h5>ĐĂNG NHẬP</h5>
-                        <form th:action="@{login}" method="post" th:object="${loginRequest}">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <p>Email</p>
-                                    <div class="input-group">
-                                        <input type="text" placeholder="username" th:field="*{email}">
-                                        <img th:src="@{/img/edit.png}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <p>Mật khẩu</p>
-                                    <div class="input-group">
-                                        <input type="password" placeholder="password" th:field="*{password}">
-                                        <img th:src="@{/img/edit.png}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 mt-3">
-                                    <button type="submit">Đăng nhập <i class="lnr lnr-arrow-right"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center">
+                    <span class="display-1 d-block">THÀNH CÔNG</span>
+                    <div class="mb-4 lead">Chúc mừng quý khách đã đăng ký tài khoản thành công.</div>
+                    <a th:href="@{/index}" class="primary-btn mb-3">QUAY VỀ TRANG CHỦ<i
+                            class="lnr lnr-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Contact Section End -->
+    </div>
 
     <div th:replace="fragments/footer :: footer"></div>
     <!-- Js Plugins -->

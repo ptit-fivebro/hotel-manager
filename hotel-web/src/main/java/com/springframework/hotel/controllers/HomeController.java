@@ -1,15 +1,9 @@
 package com.springframework.hotel.controllers;
 
-import com.springframework.hotel.models.RoomCategory;
 import com.springframework.hotel.services.IRoomCategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.io.IOException;
 
 @Controller
 public class HomeController {
@@ -21,6 +15,7 @@ public class HomeController {
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
+        model.addAttribute("title", "Trang chủ");
         model.addAttribute("roomCategories", roomCategoryService.findAll());
         return "index";
     }
@@ -53,5 +48,11 @@ public class HomeController {
     @RequestMapping({"success", "success.html"})
     public String success(Model model) {
         return "success";
+    }
+
+    @RequestMapping({"successRegister", "successRegister.html"})
+    public String successRegister(Model model) {
+        model.addAttribute("title", "Đăng ký thành công");
+        return "successRegister";
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public class RoomCategory {
     @Id
     @Column(name = "ID_ROOM_CATEGORY")
-    private String idRoomCategory;
+    private int idRoomCategory;
 
     @Column(name = "NAME")
     private String name;

@@ -26,7 +26,7 @@ public class RoomCategoryServiceImpl implements IRoomCategoryService {
     }
 
     @Override
-    public RoomCategory findById(String id) {
+    public RoomCategory findById(Integer id) {
         Optional<RoomCategory> roomCategory = roomCategoryRepository.findById(id);
         return roomCategory.orElse(null);
     }
@@ -42,7 +42,7 @@ public class RoomCategoryServiceImpl implements IRoomCategoryService {
     }
 
     @Override
-    public void deleteById(String s) {
+    public void deleteById(Integer s) {
         roomCategoryRepository.deleteById(s);
     }
 }

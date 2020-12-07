@@ -59,7 +59,7 @@ CREATE TABLE `Contact` (
 );
 
 CREATE TABLE `Room_Category` (
-  `ID_ROOM_CATEGORY` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ID_ROOM_CATEGORY` int NOT NULL,
   `NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `NUMBER` int DEFAULT NULL,
   `PRICE` float DEFAULT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE `Room_Status` (
 CREATE TABLE `Room` (
   `ID_ROOM` int NOT NULL,
   `ID_ROOM_STATUS` int NOT NULL,
-  `ID_ROOM_CATEGORY` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ID_ROOM_CATEGORY` int NOT NULL,
   `FLOOR_NUMBER` int DEFAULT 1,
   PRIMARY KEY (`ID_ROOM`),
   foreign key (`ID_ROOM_STATUS`) references `Room_Status`(`ID_ROOM_STATUS`),
@@ -105,7 +105,7 @@ CREATE TABLE `Booking_Form` (
 CREATE TABLE `Booking_Form_Detail` (
   `ID_BOOKING_DETAIL` int NOT null auto_increment,
   `ID_BOOKING` int NOT NULL,
-  `ID_ROOM_CATEGORY` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ID_ROOM_CATEGORY` int NOT NULL,
   `NUMBER` int NOT NULL,
   PRIMARY KEY (`ID_BOOKING_DETAIL`),
   foreign key (`ID_BOOKING`) references `Booking_Form`(`ID_BOOKING`),

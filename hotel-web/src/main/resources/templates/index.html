@@ -68,43 +68,43 @@
                     <div class="col-lg-6">
                         <div class="check-form">
                             <h2>Tìm phòng có sẵn</h2>
-                            <form action="#">
+                            <form th:action="@{/seachRoom}" method="get" th:object="${searchRoom}">
                                 <div class="datepicker">
                                     <div class="date-select">
                                         <p>Ngày đến</p>
-                                        <input type="text" class="datepicker-1" value="dd / mm / yyyy">
+                                        <input type="text" class="datepicker-1" value="dd / mm / yyyy" th:field="*{expectedArrivalDate}">
                                         <img th:src="@{/img/calendar.png}" alt="">
                                     </div>
                                     <div class="date-select to">
                                         <p>Ngày đi</p>
-                                        <input type="text" class="datepicker-2" value="dd / mm / yyyy">
+                                        <input type="text" class="datepicker-2" value="dd / mm / yyyy" th:field="*{expectDepartureDate}">
                                         <img th:src="@{/img/calendar.png}" alt="">
                                     </div>
                                 </div>
                                 <div class="room-quantity">
                                     <div class="single-quantity">
                                         <p>Người lớn</p>
-                                        <div class="pro-qty"><input type="text" value="0"></div>
+                                        <div class="pro-qty"><input type="text" value="0" th:field="*{numberAudults}"></div>
                                     </div>
                                     <div class="single-quantity">
                                         <p>Trẻ em</p>
-                                        <div class="pro-qty"><input type="text" value="0"></div>
+                                        <div class="pro-qty"><input type="text" value="0" th:field="*{numberChild}"></div>
                                     </div>
                                     <div class="single-quantity last">
                                         <p>Phòng</p>
-                                        <div class="pro-qty"><input type="text" value="0"></div>
+                                        <div class="pro-qty"><input type="text" value="0" th:field="*{numberRoom}"></div>
                                     </div>
                                 </div>
                                 <div class="room-selector">
                                     <p>Loại phòng</p>
                                     <select class="suit-select">
                                         <option>Vui lòng chọn loại phòng</option>
-                                        <option value="">Phòng tiêu chuẩn</option>
-                                        <option value="">Phòng VIP</option>
-                                        <option value="">Phòng ...</option>
+                                        <option th:each="r : ${roomCategories}"
+                                                th:value="${r.idRoomCategory}"
+                                                th:utext="${r.name}"/>
                                     </select>
                                 </div>
-                                <button type="button">Tìm phòng<i class="lnr lnr-arrow-right"></i></button>
+                                <button type="submit">Tìm phòng<i class="lnr lnr-arrow-right"></i></button>
                             </form>
                         </div>
                     </div>

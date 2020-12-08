@@ -47,36 +47,35 @@
 						style="border-radius: 20%">
 					</span> <span class="login100-form-title p-b-34 p-t-27"> Log in </span>
 					<div th:if="${param.error}">
-						<div class="alert alert-danger">Invalid username or
-							password.</div>
+						<div class="alert alert-danger">Tài khoản hoặc mật khẩu không đúng</div>
 					</div>
 					<div th:if="${param.logout}">
-						<div class="alert alert-info">You have been logged out.</div>
+						<div class="alert alert-info">Bạn đã đăng xuất</div>
 					</div>
 					<div class="wrap-input100 validate-input"
-						data-validate="Enter username">
+						data-validate="Vui lòng nhập tài khoản">
 						<input class="input100" type="text" name="username"
-							placeholder="Username"> <span class="focus-input100"
+							placeholder="Tài khoản"> <span class="focus-input100"
 							data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input"
-						data-validate="Enter password">
+						data-validate="Vui lòng nhập mật khẩu">
 						<input class="input100" type="password" name="pass"
-							placeholder="Password"> <span class="focus-input100"
+							placeholder="Mật khẩu"> <span class="focus-input100"
 							data-placeholder="&#xf191;"></span>
 					</div>
 
 					<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox"
 							name="remember-me"> <label class="label-checkbox100"
-							for="ckb1"> Remember me </label>
+							for="ckb1"> Ghi nhớ mật khẩu </label>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit"
 							name="login-submit" id="login-submit" value="Log In">
-							Login</button>
+							Đăng nhập</button>
 					</div>
 				</form>
 			</div>

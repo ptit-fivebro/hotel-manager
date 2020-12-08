@@ -1,4 +1,4 @@
-package com.springframework.hotel.constraint;
+package com.springframework.hotel.constraints;
 
 import org.apache.commons.beanutils.BeanUtils;
 

@@ -1,4 +1,4 @@
-package com.springframework.hotel.constraint;
+package com.springframework.hotel.constraints;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -30,4 +30,5 @@ public @interface FieldMatch {
         FieldMatch[] value();
     }
 }
+
 

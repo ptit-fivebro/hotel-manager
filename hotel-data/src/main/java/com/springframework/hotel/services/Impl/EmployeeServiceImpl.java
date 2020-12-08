@@ -3,41 +3,39 @@ package com.springframework.hotel.services.Impl;
 import com.springframework.hotel.models.Employee;
 import com.springframework.hotel.repositories.EmployeeRepository;
 import com.springframework.hotel.services.IEmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {
+
+    @Autowired
     private EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> findAll() {
-        List<Employee> employees = new ArrayList<>();
-        employeeRepository.findAll().forEach(employees::add);
-        return employees;
+    public Employee findEmployee(Long id) {
+        // TODO Auto-generated method stub
+        return employeeRepository.getOne(id);
     }
 
     @Override
-    public Employee findById(Integer integer) {
-        Optional<Employee> employee = employeeRepository.findById(integer);
-        return employee.orElse(null);
+    public void editEmployeeInfo(String employeeNumber, String employeeName, String birth, String gender, String address, String email, String phoneNumber, String salary, String managerNumber, Long employeeId) {
+        // TODO Auto-generated method stub
+        employeeRepository.updateEmployee(employeeNumber, employeeName, birth, gender, address, email, phoneNumber, salary, managerNumber, employeeId);
     }
 
     @Override
-    public Employee save(Employee object) {
-        return employeeRepository.save(object);
+    public void addEmployee(String employeeNumber, String employeeName, String birth, String gender, String address, String email, String phoneNumber, String salary, String managerNumber) {
+        Employee employee = new Employee(employeeNumber, employeeName, birth, gender, address, email, phoneNumber, salary, managerNumber);
+        employeeRepository.save(employee);
     }
 
-    @Override
-    public void delete(Employee object) {
-        employeeRepository.delete(object);
-    }
 
     @Override
-    public void deleteById(Integer integer) {
-        employeeRepository.deleteById(integer);
+    public Page<Employee> searchEmployees(Pageable pageable, String text) {
+        // TODO Auto-generated method stub
+        return employeeRepository.searchEmployees(pageable,"%"+text.trim()+"%");
     }
 }

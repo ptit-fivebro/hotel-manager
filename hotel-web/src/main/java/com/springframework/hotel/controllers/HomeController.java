@@ -1,7 +1,6 @@
 package com.springframework.hotel.controllers;
 
 import com.springframework.dto.SearchRoomRequest;
-import com.springframework.hotel.services.IRoomCategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,22 +9,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
-    private final IRoomCategoryService roomCategoryService;
-
-    public HomeController(IRoomCategoryService roomCategoryService) {
-        this.roomCategoryService = roomCategoryService;
-    }
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
         model.addAttribute("title", "Trang chủ");
-        model.addAttribute("roomCategories", roomCategoryService.findAll());
         model.addAttribute("searchRoom", new SearchRoomRequest());
         return "index";
     }
 
     @RequestMapping(value = "/seachRoom", method = RequestMethod.GET)
-    public String search(Model model,  @ModelAttribute("searchRoom") SearchRoomRequest searchRequest) {
+    public String search(Model model, @ModelAttribute("searchRoom") SearchRoomRequest searchRequest) {
         System.out.println(searchRequest);
         return "index";
     }

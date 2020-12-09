@@ -16,13 +16,11 @@ public class ChamberServiceImpl implements IChamberService {
 
     @Override
     public Chamber findChamber(Long id) {
-        // TODO Auto-generated method stub
-        return chamberRepository.getOne(id);
+        return chamberRepository.findById(id).get();
     }
 
     @Override
     public void deleteChamber(Long chamberId) {
-        // TODO Auto-generated method stub
         chamberRepository.deleteById(chamberId);
     }
 
@@ -33,13 +31,11 @@ public class ChamberServiceImpl implements IChamberService {
 
     @Override
     public Page<Chamber> searchChamberWithPrice2(Pageable pageable,String type, String vip) {
-        // TODO Auto-generated method stub
         return chamberRepository.searchChamberWithPrice2(pageable,type, vip);
     }
 
     @Override
     public Page<Chamber> searchChamberWithPrice3(Pageable pageable,String type, String vip) {
-        // TODO Auto-generated method stub
         return chamberRepository.searchChamberWithPrice3(pageable,type, vip);
     }
 
@@ -50,19 +46,16 @@ public class ChamberServiceImpl implements IChamberService {
 
     @Override
     public Page<Chamber> searchChamber(Pageable pageable, String text) {
-        // TODO Auto-generated method stub
         return chamberRepository.searchChamber(pageable,"%"+ text.trim() + "%");
     }
 
     @Override
     public void updateChamberInfo(String number, String type, String price, String area, String note, String vip,Long id) {
-        // TODO Auto-generated method stub
         chamberRepository.updateChamberInfo(number, type, price, area, note, vip, id);
     }
 
     @Override
     public void addChamber(String number, String type, String price, String area, String note, String fvip) {
-        // TODO Auto-generated method stub
         Chamber chamber = new Chamber(number, type, fvip, price, area, note, "true"); // mac dinh khi them la phong trong
         chamberRepository.save(chamber);
     }

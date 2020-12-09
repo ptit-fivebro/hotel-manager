@@ -14,7 +14,6 @@ public class OrderFoodServiceImpl implements IOrderFoodService {
 
     @Override
     public void addOrderFood(OrderFood orderFood) {
-        // TODO Auto-generated method stub
         orderFoodRepository.save(orderFood);
     }
 

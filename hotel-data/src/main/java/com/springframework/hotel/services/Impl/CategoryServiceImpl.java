@@ -16,13 +16,11 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Override
     public List<Category> loadListCategories() {
-        // TODO Auto-generated method stub
         return categoryRepository.findAll();
     }
 
     @Override
     public Category getOne(Long id) {
-        // TODO Auto-generated method stub
-        return categoryRepository.getOne(id);
+        return categoryRepository.findById(id).get();
     }
 }

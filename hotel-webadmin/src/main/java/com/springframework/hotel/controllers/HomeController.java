@@ -26,7 +26,6 @@ public class HomeController {
 
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public String accessDenied(Model model, Principal principal) {
-        System.out.println(principal);
         if(principal != null) {
             User loginUser = (User) ((Authentication)principal).getPrincipal();
             String userInfor = WebUtils.toString(loginUser);

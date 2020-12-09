@@ -14,7 +14,6 @@ public class ServiceBillServiceImpl implements IServiceBillService {
 
     @Override
     public void addServiceBill(ServiceBill bill) {
-        // TODO Auto-generated method stub
         serviceBillRepository.save(bill);
     }
 

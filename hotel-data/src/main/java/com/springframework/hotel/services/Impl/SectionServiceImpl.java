@@ -16,7 +16,6 @@ public class SectionServiceImpl implements ISectionService {
 
     @Override
     public List<Section> getSectionOption() {
-        // TODO Auto-generated method stub
         return sectionRepository.findAll();
     }
 }

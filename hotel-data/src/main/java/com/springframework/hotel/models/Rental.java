@@ -129,7 +129,7 @@ public class Rental implements Serializable{
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="payment_id", nullable=false)
+    @JoinColumn(name="payment_id", nullable=true)
     private Payment payment;
 
     @OneToMany(mappedBy = "rental")

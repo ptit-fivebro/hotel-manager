@@ -1,5 +1,12 @@
 package com.springframework.hotel.api;
 
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.validation.Valid;
+
 import com.springframework.hotel.dto.CheckInInfoDto;
 import com.springframework.hotel.models.AjaxResponseBody;
 import com.springframework.hotel.models.Chamber;
@@ -15,12 +22,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @RestController
 public class CheckInApi {
@@ -45,9 +46,7 @@ public class CheckInApi {
                     errors.getAllErrors().stream().map(x -> x.getDefaultMessage()).collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
-
         chamberService.updateCheckIn(checkin.getChamberId()); // doi trang thai phong thanh co nguoi o
-
         Chamber chamber = chamberService.findChamber(checkin.getChamberId()); // tim phong da thay doi t.thai o tren
 
         int check = guestService.checkExistGuest(checkin.getIdCard());
@@ -83,6 +82,7 @@ public class CheckInApi {
         rental.setNote(checkin.getNote());
         rental.setPaid("false"); // khach chua co tra tien
 
+        System.out.println(rental);
         rentalService.addRentalInfo(rental); // them hoa don thue phong
 
         if (guestCheckExAndCheckInserted != null)

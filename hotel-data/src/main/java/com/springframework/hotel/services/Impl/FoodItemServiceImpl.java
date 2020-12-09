@@ -20,19 +20,16 @@ public class FoodItemServiceImpl implements IFoodItemService {
 
     @Override
     public List<FoodItem> loadToSelectOption() {
-        // TODO Auto-generated method stub
         return foodItemRepository.findAll();
     }
 
     @Override
     public FoodItem getItem(Long id) {
-        // TODO Auto-generated method stub
-        return foodItemRepository.getOne(id);
+        return foodItemRepository.findById(id).get();
     }
 
     @Override
     public Page<FoodItemDto> getListFoodItem(org.springframework.data.domain.Pageable pageable,String text) {
-        // TODO Auto-generated method stub
         List<Object[]> foodItem = foodItemRepository.getListFoodItem("%"+text+"%");
         List<FoodItemDto> result = new ArrayList<FoodItemDto>();
         for(Object[] item:foodItem) {
@@ -48,7 +45,6 @@ public class FoodItemServiceImpl implements IFoodItemService {
 
     @Override
     public FoodItemDto getFoodItem(Long id) {
-        // TODO Auto-generated method stub
         Object[] item = foodItemRepository.getOneFoodItem(id);
         FoodItemDto result = new FoodItemDto(item);
         return result;
@@ -56,13 +52,11 @@ public class FoodItemServiceImpl implements IFoodItemService {
 
     @Override
     public void saveFoodItem(FoodItem item) {
-        // TODO Auto-generated method stub
         foodItemRepository.save(item);
     }
 
     @Override
     public void deleteFoodItem(Long id) {
-        // TODO Auto-generated method stub
         foodItemRepository.deleteById(id);
     }
 }

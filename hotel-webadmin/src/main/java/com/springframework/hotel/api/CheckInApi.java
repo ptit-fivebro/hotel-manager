@@ -35,8 +35,8 @@ public class CheckInApi {
     @Autowired
     private IRentalService rentalService;
 
-    @Transactional(rollbackFor = Exception.class)
     // rollback khi gap bat ki ngoai le nao CHUA DC xu ly
+    @Transactional(rollbackFor = Exception.class)
     @PostMapping("/rent-chamber")
     public ResponseEntity<?> getSearchResultViaAjax(@Valid @RequestBody CheckInInfoDto checkin, Errors errors) {
 
@@ -81,8 +81,6 @@ public class CheckInApi {
         rental.setCheckInDate(date); // set ngay check in la ngay hom nay
         rental.setNote(checkin.getNote());
         rental.setPaid("false"); // khach chua co tra tien
-
-        System.out.println(rental);
         rentalService.addRentalInfo(rental); // them hoa don thue phong
 
         if (guestCheckExAndCheckInserted != null)

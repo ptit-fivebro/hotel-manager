@@ -7,168 +7,171 @@
 		<div th:replace="~{starter::header(2)}"></div>
 		<div th:replace="~{starter::header_content}"></div>
 		<div class="container" style="margin-top: 350px; margin-bottom: 50px">
-			<div class="row">
-				<div class="col-md-5">
-					<div class="row rounded"
-						style="border: black 2px groove; padding: 15px;">
-						<h3 style="color: red;">Thông tin phòng</h3>
-						<input type="text" id="id" style="display: none;">
-						<div class="form-group col-md-12">
-							<label for="number" class="title-input">Số phòng</label> <select
-								class="custom-select" name="chamber_number" id="chamber_number">
+			<form id="check-out-form">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="row rounded"
+							 style="border: black 2px groove; padding: 15px;">
+							<h3 style="color: red;">Thông tin phòng</h3>
+							<input type="text" id="id" style="display: none;">
+							<div class="form-group col-md-12">
+								<label class="title-input">Số phòng</label> <select
+									class="custom-select" name="chamber_number" id="chamber_number">
 								<option disabled="disabled" selected="selected">Vui
 									lòng chọn phòng...</option>
 								<th:block th:each="item:${list_chambers}">
 									<option th:attr="value=${item}" th:utext="${item}"></option>
 								</th:block>
 							</select>
+							</div>
+							<div class="form-group col-md-12">
+								<label class="title-input">Loại phòng</label> <input
+									type="text" class="form-control" id="type" readonly="readonly">
+							</div>
+							<div class="form-group col-md-12">
+								<label class="title-input">Giá(VND)</label> <input
+									type="text" class="form-control" id="price" readonly="readonly">
+							</div>
+							<div class="form-check col-md-12"
+								 style="padding-left: 40px; padding-bottom: 10px;">
+								<input class="form-check-input" type="checkbox" id="vip"
+									   onclick="javascript: return false;"> <label
+									class="form-check-label" for="vip">Vip </label>
+							</div>
 						</div>
-						<div class="form-group col-md-12">
-							<label for="number" class="title-input">Loại phòng</label> <input
-								type="text" class="form-control" id="type" readonly="readonly">
-						</div>
-						<div class="form-group col-md-12">
-							<label for="phone_number" class="title-input">Giá(VND)</label> <input
-								type="text" class="form-control" id="price" readonly="readonly">
-						</div>
-						<div class="form-check col-md-12"
-							style="padding-left: 40px; padding-bottom: 10px;">
-							<input class="form-check-input" type="checkbox" id="vip"
-								onclick="javascript: return false;"> <label
-								class="form-check-label" for="vip">Vip </label>
+						<div class="row rounded"
+							 style="border: black 2px groove; padding: 15px; margin-top: 20px;">
+							<h3 style="color: red;">Thông tin khách hàng</h3>
+							<div class="row" style="margin-left: 0px">
+								<div class="form-group col-md-6">
+									<label for="name" class="title-input">Họ tên</label> <input
+										type="text" class="form-control" required id="name" name="name"
+										readonly="readonly">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="card" class="title-input">Căn cước</label> <input
+										type="number" class="form-control" id="card" name="card"
+										required readonly="readonly">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="birth" class="title-input">Ngày sinh</label> <input
+										type="text" class="form-control" id="birth" name="birth"
+										required readonly="readonly">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="passport" class="title-input">Mã hộ chiếu</label> <input
+										type="text" class="form-control" id="passport" name="passport"
+										readonly="readonly">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="address" class="title-input">Địa chỉ</label> <input
+										type="text" class="form-control" id="address" name="address"
+										required readonly="readonly">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="nationality" class="title-input">Quốc tịch </label>
+									<input type="text" class="form-control" id="nationality"
+										   name="nationality" required readonly="readonly">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="phone" class="title-input">Số điện thoại</label> <input
+										type="number" class="form-control" id="phone" name="phone"
+										required readonly="readonly">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="email" class="title-input">Email</label> <input
+										type="email" class="form-control" id="email" name="email"
+										readonly="readonly">
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="row rounded"
-						style="border: black 2px groove; padding: 15px; margin-top: 20px;">
-						<h3 style="color: red;">Thông tin khách hàng</h3>
-						<div class="row" style="margin-left: 0px">
-							<div class="form-group col-md-6">
-								<label for="name" class="title-input">Họ tên</label> <input
-									type="text" class="form-control" required id="name" name="name"
+					<div class="col-md-7">
+						<div class="row rounded"
+							 style="border: black 2px groove; padding: 15px; height: 815px;">
+							<div class="col-md-12" style="text-align: center;">
+								<h2 style="color: red;">Thông tin thuê phòng</h2>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="address" class="title-input">Ngày đặt phòng</label> <input
+									type="text" class="form-control" id="check-in-date"
+									name="check-in-date" required readonly="readonly">
+							</div>
+							<div class="form-group col-md-4">
+								<label for="address" class="title-input">Số ngày ở</label> <input
+									type="text" class="form-control" id="stay" name="stay" required
 									readonly="readonly">
 							</div>
-							<div class="form-group col-md-6">
-								<label for="card" class="title-input">Căn cước</label> <input
-									type="number" class="form-control" id="card" name="card"
-									required readonly="readonly">
+							<div class="col-md-12 form-inline" style="margin-bottom: 8px">
+								<label for="address" class="title-input">Sinh hoạt phí</label>
 							</div>
-							<div class="form-group col-md-6">
-								<label for="birth" class="title-input">Ngày sinh</label> <input
-									type="text" class="form-control" id="birth" name="birth"
-									required readonly="readonly">
+							<div class="col-md-12">
+								<div class="form-inline"
+									 style="border: black 1px dotted; padding: 0 15px">
+									<div class="form-group" style="width: 100%; padding: 15px 0">
+										<label for="address" class="title-input col-md-4">Thuê
+											phòng(VND):</label> <input type="text" class="form-control col-md-8"
+																	   id="rent" name="rent" required readonly="readonly">
+									</div>
+									<div class="form-group" style="width: 100%; padding: 15px 0">
+										<label for="address" class="title-input col-md-4">Nhà
+											hàng(VND):</label> <input type="text" class="form-control col-md-8"
+																	  readonly="readonly" id="food" name="food" required>
+									</div>
+									<div class="form-group" style="width: 100%; padding: 15px 0">
+										<label for="address" class="title-input col-md-4">Dịch
+											vụ khác(VND):</label> <input type="text" class="form-control col-md-8"
+																		 readonly="readonly" id="service" name="service" required>
+									</div>
+									<div class="form-group" style="width: 100%; padding: 15px 0">
+										<label for="address" class="title-input col-md-4">Tổng(VND):</label>
+										<input type="text" class="form-control col-md-8"
+											   readonly="readonly" id="total" name="total" required>
+										<input type="text" id="total-T" style="display: none;">
+									</div>
+								</div>
 							</div>
-							<div class="form-group col-md-6">
-								<label for="passport" class="title-input">Mã hộ chiếu</label> <input
-									type="text" class="form-control" id="passport" name="passport"
-									readonly="readonly">
+							<div class="col-md-12" style="margin-top: 20px">
+								<div class="form-group">
+									<label for="address" class="title-input">Ghi chú đặt
+										phòng</label>
+									<textarea class="form-control" id="note" name="note" rows="3"
+											  readonly="readonly"></textarea>
+								</div>
 							</div>
-							<div class="form-group col-md-6">
-								<label for="address" class="title-input">Địa chỉ</label> <input
-									type="text" class="form-control" id="address" name="address"
-									required readonly="readonly">
+							<div class="form-group col-md-5">
+								<label for="address" class="title-input">Phụ phí (cộng
+									thêm)</label> <input type="text" class="form-control"
+														 placeholder="Nhập phụ phí..." id="up" name="up">
 							</div>
-							<div class="form-group col-md-6">
-								<label for="nationality" class="title-input">Quốc tịch </label>
-								<input type="text" class="form-control" id="nationality"
-									name="nationality" required readonly="readonly">
+							<div class="form-group col-md-5">
+								<label for="address" class="title-input">Giảm trừ</label> <input
+									type="text" class="form-control" id="down" name="down"
+									placeholder="Nhập giảm trừ...">
 							</div>
-							<div class="form-group col-md-6">
-								<label for="phone" class="title-input">Số điện thoại</label> <input
-									type="number" class="form-control" id="phone" name="phone"
-									required readonly="readonly">
+							<div class="form-group col-md-2">
+								<button type="submit" class="btn btn-warning"
+										style="margin-top: 30px" onclick="calculateTotalPayment(true)">
+									<i class="fas fa-cash-register"></i>
+								</button>
 							</div>
-							<div class="form-group col-md-6">
-								<label for="email" class="title-input">Email</label> <input
-									type="email" class="form-control" id="email" name="email"
-									readonly="readonly">
+							<div class="form-group col-md-12">
+								<label for="address" class="title-input">Tổng thanh toán</label>
+								<input type="text" class="form-control" id="total-pay"
+									   name="total-pay" required readonly="readonly">
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-7">
-					<div class="row rounded"
-						style="border: black 2px groove; padding: 15px; height: 815px;">
-						<div class="col-md-12" style="text-align: center;">
-							<h2 style="color: red;">Thông tin thuê phòng</h2>
-						</div>
-						<div class="form-group col-md-8">
-							<label for="address" class="title-input">Ngày đặt phòng</label> <input
-								type="text" class="form-control" id="check-in-date"
-								name="check-in-date" required readonly="readonly">
-						</div>
-						<div class="form-group col-md-4">
-							<label for="address" class="title-input">Số ngày ở</label> <input
-								type="text" class="form-control" id="stay" name="stay" required
-								readonly="readonly">
-						</div>
-						<div class="col-md-12 form-inline" style="margin-bottom: 8px">
-							<label for="address" class="title-input">Sinh hoạt phí</label>
-						</div>
-						<div class="col-md-12">
-							<div class="form-inline"
-								style="border: black 1px dotted; padding: 0 15px">
-								<div class="form-group" style="width: 100%; padding: 15px 0">
-									<label for="address" class="title-input col-md-4">Thuê
-										phòng(VND):</label> <input type="text" class="form-control col-md-8"
-										id="rent" name="rent" required readonly="readonly">
-								</div>
-								<div class="form-group" style="width: 100%; padding: 15px 0">
-									<label for="address" class="title-input col-md-4">Nhà
-										hàng(VND):</label> <input type="text" class="form-control col-md-8"
-										readonly="readonly" id="food" name="food" required>
-								</div>
-								<div class="form-group" style="width: 100%; padding: 15px 0">
-									<label for="address" class="title-input col-md-4">Dịch
-										vụ khác(VND):</label> <input type="text" class="form-control col-md-8"
-										readonly="readonly" id="service" name="service" required>
-								</div>
-								<div class="form-group" style="width: 100%; padding: 15px 0">
-									<label for="address" class="title-input col-md-4">Tổng(VND):</label>
-									<input type="text" class="form-control col-md-8"
-										readonly="readonly" id="total" name="total" required>
-									<input type="text" id="total-T" style="display: none;">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12" style="margin-top: 20px">
-							<div class="form-group">
-								<label for="address" class="title-input">Ghi chú đặt
-									phòng</label>
-								<textarea class="form-control" id="note" name="note" rows="3"
-									readonly="readonly"></textarea>
-							</div>
-						</div>
-						<div class="form-group col-md-5">
-							<label for="address" class="title-input">Phụ phí (cộng
-								thêm)</label> <input type="text" class="form-control"
-								placeholder="Nhập phụ phí..." id="up" name="up">
-						</div>
-						<div class="form-group col-md-5">
-							<label for="address" class="title-input">Giảm trừ</label> <input
-								type="text" class="form-control" id="down" name="down"
-								placeholder="Nhập giảm trừ...">
-						</div>
-						<div class="form-group col-md-2">
-							<button type="submit" class="btn btn-warning"
-								style="margin-top: 30px" onclick="calculateTotalPayment(true)">
-								<i class="fas fa-cash-register"></i>
+					<div class="col-md-12">
+						<div style="margin: 30px 30px; float: right;">
+							<button type="submit" class="btn btn-primary" id="check_out_button">
+								<i class="fas fa-print"></i> In hóa đơn
 							</button>
 						</div>
-						<div class="form-group col-md-12">
-							<label for="address" class="title-input">Tổng thanh toán</label>
-							<input type="text" class="form-control" id="total-pay"
-								name="total-pay" required readonly="readonly">
-						</div>
 					</div>
 				</div>
-				<div class="col-md-12">
-					<div style="margin: 30px 30px; float: right;">
-						<button type="submit" class="btn btn-primary">
-							<i class="fas fa-print"></i> In hóa đơn
-						</button>
-					</div>
-				</div>
-			</div>
+			</form>
+
 		</div>
 	</div>
 	<div th:replace="~{starter::footer}"></div>
@@ -226,6 +229,10 @@
 				this.select();
 			});
 
+			$("#check-out-form").submit(function(event) {
+				event.preventDefault();
+				fire_ajax_submit();
+			});
 		});
 
 		function calculateTotalPayment(value) {
@@ -246,6 +253,54 @@
 			} else {
 				$('#total-pay').val(total + up - down);
 			}
+		}
+		function fire_ajax_submit() {
+			var checkOut = {};
+
+			checkOut["chamberId"] = $("#chamber_number").val();
+			checkOut["type"] = $("#type").val();
+			checkOut["price"] = $('#price').val();
+			checkOut["rentalId"] = $('#id').val();
+			checkOut["name"] = $('#name').val();
+			checkOut["card"] = $('#card').val();
+			checkOut["birth"] = $('#birth').val();
+			checkOut["passport"] = $('#passport').val();
+			checkOut["address"] = $('#address').val();
+			checkOut["nationality"] = $('#nationality').val();
+			checkOut["phone"] = $('#phone').val();
+			checkOut["email"] = $('#email').val();
+			checkOut["vip"] = $('#vip').val();
+			checkOut["checkInDate"] = $('#check-in-date').val();
+			checkOut["numberStay"] = $('#stay').val();
+			checkOut["rent"] = $('#rent').val();
+			checkOut["food"] = $('#food').val();
+			checkOut["service"] = $('#service').val();
+			checkOut["note"] = $('#note').val();
+			checkOut["total"] = $('#total-pay').val();
+
+			console.log(checkOut)
+			$("#check_out_button").prop("disabled", false);
+			$.ajax({
+				type : "POST",
+				contentType : "application/json",
+				url : "/rent-chamber-complete",
+				data : JSON.stringify(checkOut),
+				dataType : 'json',
+				cache : false,
+				timeout : 600000,
+				success : function(data) {
+					console.log("Success : ", data);
+					alert(data.message);
+					$("#check_out_button").prop("disabled", true);
+					$("#check-out-form")[0].reset(); // reset modal element
+					location.reload(); //reload this page
+				},
+				error : function(data) {
+					console.log("Error : ", data);
+					alert("Thông tin nhập lỗi!");
+					$("#check_out_button").prop("disabled", false);
+				}
+			});
 		}
 	</script>
 </body>

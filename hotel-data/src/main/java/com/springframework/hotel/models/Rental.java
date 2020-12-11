@@ -154,4 +154,14 @@ public class Rental implements Serializable{
         this.serviceBills = serviceBills;
     }
 
+    @OneToMany(mappedBy = "rental")
+    private Set<Bill> bills;
+
+    public Set<Bill> getBills() {
+        return bills;
+    }
+
+    public void setBills(Set<Bill> bills) {
+        this.bills = bills;
+    }
 }

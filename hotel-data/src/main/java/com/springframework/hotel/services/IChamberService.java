@@ -22,6 +22,8 @@ public interface IChamberService {
 
     void updateCheckIn(Long id); // update lai trang thai phong khi check in
 
+    void updateCheckOut(Long id); // update lai trang thai phong khi check out
+
     void updateChamberInfo(String number, String type, String price, String area, String note, String vip,Long id);
 
 

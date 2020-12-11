@@ -45,6 +45,11 @@ public class ChamberServiceImpl implements IChamberService {
     }
 
     @Override
+    public void updateCheckOut(Long id) {
+        chamberRepository.updateChamberIsEmpty("true", id);
+    }
+
+    @Override
     public Page<Chamber> searchChamber(Pageable pageable, String text) {
         return chamberRepository.searchChamber(pageable,"%"+ text.trim() + "%");
     }

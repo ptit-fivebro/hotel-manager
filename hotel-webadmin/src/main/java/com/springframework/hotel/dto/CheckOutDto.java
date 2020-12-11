@@ -25,6 +25,7 @@ public class CheckOutDto {
     private String food;
     private String service;
     private String note;
+    private String chamberId;
 
     public CheckOutDto(Rental rental,
                        Chamber chamber,
@@ -235,5 +236,13 @@ public class CheckOutDto {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getChamberId() {
+        return chamberId;
+    }
+
+    public void setChamberId(String chamberId) {
+        this.chamberId = chamberId;
     }
 }

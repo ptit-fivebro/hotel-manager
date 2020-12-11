@@ -66,4 +66,5 @@ public class RentalServiceImpl implements IRentalService {
         return rentalRepository.getChamberCheckOutInfo(chamberNumber);
     }
 
+
 }

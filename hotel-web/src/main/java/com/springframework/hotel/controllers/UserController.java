@@ -1,7 +1,7 @@
 package com.springframework.hotel.controllers;
 
-import com.springframework.dto.LoginRequest;
-import com.springframework.dto.RegisterRequest;
+import com.springframework.hotel.dto.LoginRequest;
+import com.springframework.hotel.dto.RegisterRequest;
 import com.springframework.hotel.dto.CustomerDTO;
 import com.springframework.hotel.models.Customer;
 import com.springframework.hotel.services.ICustomerService;

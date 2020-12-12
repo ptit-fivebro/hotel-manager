@@ -1,4 +1,4 @@
-package com.springframework.hotel.services.Impl;
+package com.springframework.hotel.services;
 
 import java.util.ArrayList;
 import java.util.List;

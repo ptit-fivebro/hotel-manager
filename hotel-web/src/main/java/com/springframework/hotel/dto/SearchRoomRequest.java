@@ -1,4 +1,4 @@
-package com.springframework.dto;
+package com.springframework.hotel.dto;
 
 import lombok.Data;
 

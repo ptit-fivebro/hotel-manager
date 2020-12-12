@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hotel Template">
+    <meta name="keywords" content="Hotel, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="*{title}"></title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Taviraj:300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/linearicons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/slicknav.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section set-bg" th:data-setbg="@{/img/contact-bg.jpg}">
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-information">
+                        <img th:src="@{/img/room/rooms-3.jpg}" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h5>THÔNG TIN ĐẶT PHÒNG</h5>
+                        <form th:action="@{/bookingRoom}" method="post" th:object="${bookingRequest}">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p>Họ và tên</p>
+                                    <div class="input-group" th:if="${session.usersession != null}">
+                                        <input type="text" placeholder="full name" th:value="${session.usersession.name}" readonly="readonly"/>
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Số điện thoại</p>
+                                    <div class="input-group" th:if="${session.usersession != null}">
+                                        <input type="number" placeholder="phone" th:value="${session.usersession.phone}" readonly="readonly"/>
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Email</p>
+                                    <div class="input-group">
+                                        <input type="email" placeholder="email" th:value="${session.usersession.email}" readonly="readonly">
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Ngày đến</p>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.expectedArrivalDate}" readonly="readonly">
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Ngày đi</p>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.expectDepartureDate}">
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Người lớn</p>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberAudults}">
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Trẻ em</p>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberChild}">
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Số lượng phòng</p>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberChild}">
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p>Phòng</p>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.roomCategory}">
+                                        <img th:src="@{/img/edit.png}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mt-3">
+                                    <button type="submit">Đặt phòng ngay <i class="lnr lnr-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <div th:replace="fragments/footer :: footer"></div>
+    <!-- Js Plugins -->
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+    <script th:src="@{/js/jquery-ui.min.js}"></script>
+    <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/js/jquery.slicknav.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

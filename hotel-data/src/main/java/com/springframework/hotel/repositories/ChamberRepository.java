@@ -10,6 +10,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 
 public interface ChamberRepository extends JpaRepository<Chamber, Long>{
 
@@ -50,4 +52,7 @@ public interface ChamberRepository extends JpaRepository<Chamber, Long>{
             @Param("isVip") String isVip,
             @Param("chamberId") Long chamberId
     );
+
+    @Query(CustomQuery.CHAMBER_SEARCH_CHAMBER_TYPE)
+    List<Chamber> searchChamberWithChamberType(@Param("chamberType") String type);
 }

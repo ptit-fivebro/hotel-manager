@@ -18,6 +18,10 @@ public interface CustomQuery {
 
     String CHAMBER_UPDATE_IS_EMPTY = "update Chamber set isEmpty=:isEmpty where chamberId=:chamberId";
 
+    String CHAMBER_SEARCH_CHAMBER_TYPE = "select c from Chamber c where c.chamberType = :chamberType and c.isEmpty = 'true'";
+
+    String BOOKING_SEARCH_TIME = "select b.chamber.chamberId from Booking b where b.expectedArrivalDate >= :expectedArrivalDate and b.expectDepartureDate <= :expectedArrivalDate";
+
     String CHAMBER_UPDATE_INFO = "update Chamber set chamberNumber=:chamberNumber,chamberType=:chamberType,priceDay=:priceDay,isVip=:isVip,chamberArea=:chamberArea,note=:note where chamberId=:chamberId";
 
     String GUEST_SEARCH_CART = "select g from Guest g where g.idCard = :idCard";

@@ -36,4 +36,8 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "id_customer")
     private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "chamber_id")
+    private Chamber chamber;
 }

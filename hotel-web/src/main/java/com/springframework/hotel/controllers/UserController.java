@@ -3,6 +3,7 @@ package com.springframework.hotel.controllers;
 import com.springframework.hotel.dto.LoginRequest;
 import com.springframework.hotel.dto.RegisterRequest;
 import com.springframework.hotel.dto.CustomerDTO;
+import com.springframework.hotel.dto.SearchRoomRequest;
 import com.springframework.hotel.models.Customer;
 import com.springframework.hotel.services.ICustomerService;
 import org.springframework.beans.BeanUtils;
@@ -41,6 +42,7 @@ public class UserController {
             return "redirect:/login";
         }
         session.setAttribute("usersession", customerDTO.get());
+        model.addAttribute("searchRoom", new SearchRoomRequest());
         return "index";
     }
 
@@ -64,6 +66,7 @@ public class UserController {
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(ModelMap model) {
+        model.addAttribute("loginRequest", new LoginRequest());
         session.invalidate();
         return "index";
     }

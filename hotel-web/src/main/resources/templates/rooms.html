@@ -51,7 +51,8 @@
     <!-- Rooms Section Begin -->
     <section class="room-section spad">
         <div class="container">
-            <div class="rooms-page-item">
+            <div class="rooms-page-item" th:each="r : ${rooms}">
+
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="single-room-pic">
@@ -61,16 +62,17 @@
                     <div class="col-lg-6">
                         <div class="room-text">
                             <div class="room-title">
-                                <h2>Standard Room</h2>
+                                <h2 th:text="${r.chamberNumber}"></h2>
                                 <div class="room-price">
-                                    <span>From</span>
-                                    <h2>$99</h2>
-                                    <sub>/night</sub>
+                                    <span>Giá</span>
+                                    <h2 th:text="${r.priceDay}"></h2>
+                                    <sub>/đêm</sub>
                                 </div>
                             </div>
                             <div class="room-desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
-                                    eget sapien ac, ultrices rhoncus ipsum.</p>
+                                <p th:if="${r.chamberType == 'single'}" th:text="'Phòng đơn'"></p>
+                                <p th:if="${r.chamberType == 'couple'}" th:text="'Phòng đôi'"></p>
+                                <p th:if="${r.chamberType == 'family'}" th:text="'Phòng gia đình'"></p>
                             </div>
                             <div class="room-features">
                                 <div class="room-info">
@@ -98,6 +100,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

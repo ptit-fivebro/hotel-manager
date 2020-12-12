@@ -17,25 +17,17 @@ public class CustomerServiceImpl implements ICustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    private CustomerDTO user;
-
     @Override
     public void register(Customer customer) {
         customerRepository.save(customer);
     }
 
     @Override
-    public Optional<CustomerDTO> login(String email, String password) {
+    public Optional<Customer> login(String email, String password) {
         if (StringUtils.isAnyBlank(email, password)) {
             return Optional.empty();
         }
-        Optional<CustomerDTO> usersDTO = customerRepository.findByEmailAndPassword(email, password)
-                .map(users -> {
-                    CustomerDTO dto = new CustomerDTO();
-                    BeanUtils.copyProperties(users, dto);
-                    return dto;
-                });
-        user = usersDTO.orElse(null);
-        return Optional.ofNullable(user);
+        Optional<Customer> customer = customerRepository.findByEmailAndPassword(email, password);
+        return customer;
     }
 }

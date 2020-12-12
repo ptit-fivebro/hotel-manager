@@ -16,13 +16,13 @@ public class Booking {
     private int idBooking;
 
     @Column(name = "booking_date")
-    private Date bookingDate;
+    private LocalDateTime bookingDate;
 
     @Column(name = "expected_arrival_date")
-    private Date expectedArrivalDate;
+    private LocalDateTime expectedArrivalDate;
 
     @Column(name = "expected_departure_date")
-    private Date expectDepartureDate;
+    private LocalDateTime expectDepartureDate;
 
     @Column(name = "numberAudults")
     private int numberAudults = 0;

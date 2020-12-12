@@ -21,5 +21,5 @@ public class BookingRequest {
 
     private int numberRoom;
 
-    private String roomCategory;
+    private int roomCategory;
 }

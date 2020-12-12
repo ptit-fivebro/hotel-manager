@@ -47,7 +47,7 @@
                 <div class="col-lg-6">
                     <div class="contact-form">
                         <h5>THÔNG TIN ĐẶT PHÒNG</h5>
-                        <form th:action="@{/bookingRoom}" method="post" th:object="${bookingRequest}">
+                        <form th:action="@{/bookingRoom}" th:method="post">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <p>Họ và tên</p>
@@ -80,35 +80,35 @@
                                 <div class="col-lg-12">
                                     <p>Ngày đi</p>
                                     <div class="input-group">
-                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.expectDepartureDate}">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.expectDepartureDate}" readonly="readonly">
                                         <img th:src="@{/img/edit.png}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <p>Người lớn</p>
                                     <div class="input-group">
-                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberAudults}">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberAudults}" readonly="readonly">
                                         <img th:src="@{/img/edit.png}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <p>Trẻ em</p>
                                     <div class="input-group">
-                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberChild}">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberChild}" readonly="readonly">
                                         <img th:src="@{/img/edit.png}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <p>Số lượng phòng</p>
                                     <div class="input-group">
-                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberChild}">
+                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.numberRoom}" readonly="readonly">
                                         <img th:src="@{/img/edit.png}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <p>Phòng</p>
                                     <div class="input-group">
-                                        <input type="text" placeholder="password" th:value="${session.searchRoomSession.roomCategory}">
+                                        <input type="text" placeholder="password" th:value="${chamber.chamberNumber}" readonly="readonly">
                                         <img th:src="@{/img/edit.png}" alt="">
                                     </div>
                                 </div>

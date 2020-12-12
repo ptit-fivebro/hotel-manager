@@ -9,5 +9,5 @@ public interface ICustomerService {
 
     void register(Customer customer);
 
-    Optional<CustomerDTO> login(String email, String password);
+    Optional<Customer> login(String email, String password);
 }

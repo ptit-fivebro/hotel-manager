@@ -35,13 +35,13 @@ public class UserController {
 
     @PostMapping({"login", "login.html"})
     public String login(Model model, @ModelAttribute LoginRequest loginRequest) {
-        Optional<CustomerDTO> customerDTO = customerService.login(loginRequest.getEmail(), loginRequest.getPassword());
-        if (!customerDTO.isPresent()) {
+        Optional<Customer> customer = customerService.login(loginRequest.getEmail(), loginRequest.getPassword());
+        if (!customer.isPresent()) {
             //Define code Error
             model.addAttribute("messsage", "Username or Password is wrong!");
             return "redirect:/login";
         }
-        session.setAttribute("usersession", customerDTO.get());
+        session.setAttribute("usersession", customer.get());
         model.addAttribute("searchRoom", new SearchRoomRequest());
         return "index";
     }
@@ -67,6 +67,7 @@ public class UserController {
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(ModelMap model) {
         model.addAttribute("loginRequest", new LoginRequest());
+        model.addAttribute("searchRoom", new SearchRoomRequest());
         session.invalidate();
         return "index";
     }

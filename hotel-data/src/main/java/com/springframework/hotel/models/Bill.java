@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity
@@ -15,7 +16,7 @@ public class Bill {
     private int idBill;
 
     @Column(name = "DATE")
-    private LocalDateTime date;
+    private Date date;
 
     @Column(name = "total_food")
     private double totalFood = 0;

@@ -16,7 +16,7 @@ public class ChamberServiceImpl implements IChamberService {
 
     @Override
     public Chamber findChamber(Long id) {
-        return chamberRepository.findById(id).get();
+        return chamberRepository.findById(id).orElse(null);
     }
 
     @Override

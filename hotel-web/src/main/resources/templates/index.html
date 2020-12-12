@@ -97,11 +97,11 @@
                                 </div>
                                 <div class="room-selector">
                                     <p>Loại phòng</p>
-                                    <select class="suit-select">
+                                    <select class="suit-select"th:field="*{roomCategory}">
                                         <option>Vui lòng chọn loại phòng</option>
-                                        <option th:each="r : ${roomCategories}"
-                                                th:value="${r.idRoomCategory}"
-                                                th:utext="${r.name}"/>
+                                        <option value="couple">Phòng đôi</option>
+                                        <option value="single">Phòng đơn</option>
+                                        <option value="family">Phòng gia đình</option>
                                     </select>
                                 </div>
                                 <button type="submit">Tìm phòng<i class="lnr lnr-arrow-right"></i></button>

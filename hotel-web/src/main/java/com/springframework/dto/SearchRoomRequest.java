@@ -15,5 +15,5 @@ public class SearchRoomRequest {
 
     private int numberRoom;
 
-    private int idRoomCategory;
+    private String roomCategory;
 }

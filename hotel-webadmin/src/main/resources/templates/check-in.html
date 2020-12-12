@@ -8,9 +8,6 @@
     <div class="container" style="margin-top: 350px; margin-bottom: 50px">
         <div class="row">
             <div class="col-md-2">
-                <div class="row" style="padding-left: 0; margin-top: 30px">
-                    <a href="" class="btn btn-success">Đặt nhiều phòng</a>
-                </div>
                 <div class="chamber-filter">
                     <h2>Giá</h2>
                     <div class="form-check">
@@ -316,6 +313,7 @@
             } else {
                 alert("Phòng này đang có người ở! Vui lòng chọn phòng khác!");
             }
+
         });
 
         $('input').click(function () {
@@ -330,7 +328,9 @@
     });
 
     function fire_ajax_submit() {
+
         var checkIn = {};
+
         checkIn["name"] = $("#name").val();
         checkIn["idCard"] = $("#card").val();
         checkIn["birth"] = $("#birth").val();
@@ -365,6 +365,7 @@
                 $("#check_in_button").prop("disabled", false);
             }
         });
+
     }
 </script>
 </body>

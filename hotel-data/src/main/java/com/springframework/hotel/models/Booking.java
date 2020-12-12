@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity
@@ -15,13 +16,13 @@ public class Booking {
     private int idBooking;
 
     @Column(name = "booking_date")
-    private LocalDateTime bookingDate;
+    private Date bookingDate;
 
     @Column(name = "expected_arrival_date")
-    private LocalDateTime expectedArrivalDate;
+    private Date expectedArrivalDate;
 
     @Column(name = "expected_departure_date")
-    private LocalDateTime expectDepartureDate;
+    private Date expectDepartureDate;
 
     @Column(name = "numberAudults")
     private int numberAudults = 0;

@@ -1,5 +1,8 @@
 package com.springframework.hotel.services.Impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.springframework.hotel.models.Booking;
 import com.springframework.hotel.models.Chamber;
 import com.springframework.hotel.models.Customer;
@@ -8,10 +11,13 @@ import com.springframework.hotel.repositories.CategoryRepository;
 import com.springframework.hotel.services.IBookingService;
 import com.springframework.hotel.services.IChamberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class BookingServiceImpl implements IBookingService {
@@ -21,6 +27,9 @@ public class BookingServiceImpl implements IBookingService {
 
     @Autowired
     private IChamberService chamberService;
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
 
     @Override
     public void addBooking(Customer customer,
@@ -49,6 +58,16 @@ public class BookingServiceImpl implements IBookingService {
         booking.setNumberRoom(numberRoom);
         Chamber chamber = chamberService.findChamber(chamberId);
         booking.setChamber(chamber);
-        bookingRepository.save(booking);
+//        bookingRepository.save(booking);
+        Gson gson = new Gson();
+        try{
+            String json = gson.toJson(booking);
+            Map<String, String> actionmap = new HashMap<>();
+            actionmap.put("booking", json);
+            jmsTemplate.convertAndSend("inbound.queue", actionmap);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

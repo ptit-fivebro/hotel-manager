@@ -44,6 +44,6 @@ public class Customer {
     @Column(name = "image")
     private String image;
 
-    @OneToMany(mappedBy = "chamber")
+    @OneToMany(mappedBy = "chamber", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Booking> bookingList;
 }

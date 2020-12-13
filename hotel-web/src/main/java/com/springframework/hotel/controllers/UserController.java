@@ -2,14 +2,16 @@ package com.springframework.hotel.controllers;
 
 import com.springframework.hotel.dto.LoginRequest;
 import com.springframework.hotel.dto.RegisterRequest;
-import com.springframework.hotel.dto.CustomerDTO;
 import com.springframework.hotel.dto.SearchRoomRequest;
 import com.springframework.hotel.models.Customer;
 import com.springframework.hotel.services.ICustomerService;
+import com.springframework.hotel.validator.LoginValidator;
+import com.springframework.hotel.validator.RegisterValidator;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -34,12 +36,18 @@ public class UserController {
     }
 
     @PostMapping({"login", "login.html"})
-    public String login(Model model, @ModelAttribute LoginRequest loginRequest) {
+    public String login(Model model, @ModelAttribute LoginRequest loginRequest,
+                        BindingResult result, LoginValidator loginValidator) {
+        //Thuc hien validator
+        loginValidator.validate(loginRequest, result);
+        if (result.hasErrors()) {
+            return "login";
+        }
         Optional<Customer> customer = customerService.login(loginRequest.getEmail(), loginRequest.getPassword());
         if (!customer.isPresent()) {
             //Define code Error
             model.addAttribute("messsage", "Username or Password is wrong!");
-            return "redirect:/login";
+            return "login";
         }
         session.setAttribute("usersession", customer.get());
         model.addAttribute("searchRoom", new SearchRoomRequest());
@@ -54,7 +62,12 @@ public class UserController {
     }
 
     @PostMapping({"register", "register.html"})
-    public String register(Model model, @ModelAttribute RegisterRequest registerRequest) {
+    public String register(Model model, @ModelAttribute RegisterRequest registerRequest,
+                           BindingResult result, RegisterValidator registerValidator) {
+        registerValidator.validate(registerRequest, result);
+        if (result.hasErrors()) {
+            return "register";
+        }
         Customer customer = new Customer();
         BeanUtils.copyProperties(registerRequest, customer);
         if (customer.equals(null)) {
